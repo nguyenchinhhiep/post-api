@@ -1,0 +1,7 @@
+<li class="list-group-item">
+  <span>User ID: {{ post.userId }} </span>
+  <h6>Title: {{ post.title }}</h6>
+  <p>Body: {{ post.body }}</p>
+  <button class="btn btn-danger btn-sm" (click)="onDelete()">Delete</button>
+  <button class="btn btn-info btn-sm mx-3" (click)="onEdit()">Edit</button>
+</li>

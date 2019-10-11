@@ -1,0 +1,19 @@
+<h4 class="p-2 text-center text-white bg-success m-0">Posts</h4>
+<div style="height: 60vh; overflow: auto; position: relative;">
+  <div
+    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);z-index: 9999;"
+  >
+    <app-loading-spinner *ngIf="isLoadingMode"></app-loading-spinner>
+  </div>
+  <ng-container *ngIf="posts.length >= 1 && !isLoadingMode">
+    <ul class="list-group" *ngFor="let post of posts; let i = index">
+      <app-post-item
+        [post]="post"
+        (deletePost)="this.deletePost.emit(post)"
+      ></app-post-item>
+    </ul>
+  </ng-container>
+  <p *ngIf="posts.length < 1 && !isLoadingMode" class="text-center">
+    No Post Available!
+  </p>
+</div>

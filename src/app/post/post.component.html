@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <app-post-form
+        (addPost)="addPost($event)"
+        (editPostEmit)="editPost($event)"
+      ></app-post-form>
+    </div>
+    <div class="col-md-8">
+      <app-post-list
+        [posts]="posts"
+        (deletePost)="deletePost($event)"
+        [isLoadingMode]="isLoadingMode"
+      >
+      </app-post-list>
+    </div>
+  </div>
+  <div class="notify">
+    <app-notify
+      [notifyAddMode]="notifyAddMode"
+      [notifyEditMode]="notifyEditMode"
+      [notifyDeleteMode]="notifyDeleteMode"
+      [notifyErrorMode]="notifyErrorMode"
+    ></app-notify>
+  </div>
+</div>

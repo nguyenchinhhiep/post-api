@@ -1,0 +1,97 @@
+<form
+  class="border border-light p-2 bg-light text-center"
+  [formGroup]="postForm"
+  (ngSubmit)="onSubmit(e)"
+  *ngIf="!editMode"
+>
+  <p class="h4 mb-4">New Post</p>
+  <div class="form-group">
+    <input
+      type="number"
+      id="userId"
+      class="form-control"
+      formControlName="userId"
+      placeholder="User ID"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      id="title"
+      class="form-control"
+      formControlName="title"
+      placeholder="Title"
+    />
+  </div>
+  <div class="form-group">
+    <textarea
+      id="body"
+      class="form-control"
+      formControlName="body"
+      placeholder="Body"
+    >
+    </textarea>
+  </div>
+  <div class="form-group">
+    <button
+      type="submit"
+      class="btn btn-primary btn-block my-4"
+      [disabled]="!postForm.valid"
+    >
+      Add
+    </button>
+  </div>
+</form>
+<form
+  class=" border border-light p-2 bg-light text-center"
+  [formGroup]="postEditForm"
+  (ngSubmit)="onSubmitEdit()"
+  *ngIf="editMode"
+>
+  <p class="h4 mb-4">Edit Post</p>
+  <div class="form-group">
+    <input
+      type="number"
+      id="userId"
+      class="form-control"
+      formControlName="userId"
+      placeholder="User ID"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      id="title"
+      class="form-control"
+      formControlName="title"
+      placeholder="Title"
+    />
+  </div>
+  <div class="form-group">
+    <textarea
+      id="body"
+      class="form-control"
+      formControlName="body"
+      placeholder="Body"
+    >
+    </textarea>
+  </div>
+  <div class="form-group">
+    <button
+      type="submit"
+      class="btn btn-info btn-block my-1"
+      [disabled]="!postEditForm.valid"
+    >
+      Edit
+    </button>
+    <button class="btn btn-secondary btn-block" (click)="onCancel()">
+      Cancel
+    </button>
+  </div>
+</form>
+
+<p class="text-muted m-3">https://jsonplaceholder.typicode.com/posts</p>
+<span class="text-danger"
+  >Important: the resource will not be really updated on the server but it will
+  be faked as if.</span
+>
